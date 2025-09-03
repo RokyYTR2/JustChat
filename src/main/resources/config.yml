@@ -1,0 +1,4 @@
+chat-formats:
+  default: "%luckperms_prefix%{player}: &f{message}"
+  admin: "%luckperms_prefix%{player}: &f{message}"
+  moderator: "%luckperms_prefix%{player}: &f{message}"

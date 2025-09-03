@@ -1,0 +1,7 @@
+name: JustChat
+version: '0.0.1'
+main: dev.meyba.justChat.JustChat
+api-version: '1.21'
+authors: [ Meyba._. ]
+description: Just a chat plugin.
+softdepend: [PlaceholderAPI, LuckPerms]

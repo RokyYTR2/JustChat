@@ -1,4 +1,46 @@
+# =======================
+# JustChat Config
+# =======================
+
+# Prefix used for all plugin messages
+prefix: "&x&A&2&8&B&5&9&lᴊ&x&A&4&8&D&5&A&lᴜ&x&A&5&8&E&5&C&lꜱ&x&A&7&9&0&5&D&lᴛ&x&A&9&9&1&5&E&lᴄ&x&A&A&9&3&6&0&lʜ&x&A&C&9&4&6&1&lᴀ&x&A&E&9&6&6&2&lᴛ &8» &f"
+
+# =======================
+# Messages
+# =======================
+# Messages shown in chat
+messages:
+  not-a-player: "&cʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ꜰʀᴏᴍ ᴛʜᴇ ᴄᴏɴꜱᴏʟᴇ." # Message when a non-player tries the command
+  no-permission: "&cʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ." # Message when the player lacks permission
+  reload-success: "&aᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ʜᴀꜱ ʙᴇᴇɴ ʀᴇʟᴏᴀᴅᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ!" # Message when the config reloads
+
+# =======================
+# Chat Formats
+# =======================
+# Chat format for different groups
+# Available placeholders:
+# {prefix} - Player's LuckPerms prefix
+# {suffix} - Player's LuckPerms suffix
+# {player} - Player's name
+# {group} - Player's primary group
+# {message} - The chat message
+# Plus all PlaceholderAPI placeholders if installed
+
 chat-formats:
-  default: "%luckperms_prefix%{player}: &f{message}"
-  admin: "%luckperms_prefix%{player}: &f{message}"
-  moderator: "%luckperms_prefix%{player}: &f{message}"
+  # Default format for players without specific group format
+  default: "&7{prefix}&f{player}&7{suffix}&8: &f{message}"
+  
+  # Admin group format
+  admin: "&c{prefix}&f{player}&c{suffix}&8: &f{message}"
+  
+  # Moderator group format  
+  moderator: "&9{prefix}&f{player}&9{suffix}&8: &f{message}"
+  
+  # VIP group format
+  vip: "&6{prefix}&f{player}&6{suffix}&8: &f{message}"
+  
+  # Helper group format
+  helper: "&a{prefix}&f{player}&a{suffix}&8: &f{message}"
+  
+  # Builder group format
+  builder: "&d{prefix}&f{player}&d{suffix}&8: &f{message}"

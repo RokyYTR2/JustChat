@@ -1,27 +1,22 @@
 package dev.meyba.justChat;
 
-import dev.meyba.justChat.hooks.LuckPermsHook;
+import dev.meyba.justChat.commands.Commands;
 import dev.meyba.justChat.listeners.ChatListener;
-import dev.meyba.justChat.managers.ConfigManager;
+import dev.meyba.justChat.managers.ChatManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class JustChat extends JavaPlugin {
-    private ConfigManager configManager;
-    private LuckPermsHook luckPermsHook;
+    private ChatManager chatManager;
 
     @Override
     public void onEnable() {
-        saveDefaultConfig();
+        this.saveDefaultConfig();
 
-        configManager = new ConfigManager(this);
-        configManager.loadConfig();
+        this.chatManager = new ChatManager(this);
 
-        luckPermsHook = new LuckPermsHook(this);
-        if (!luckPermsHook.isEnabled()) {
-            getLogger().warning("LuckPerms not found! Some features may be limited.");
-        }
+        this.getCommand("chat").setExecutor(new Commands(this.chatManager, this));
 
-        getServer().getPluginManager().registerEvents(new ChatListener(this), this);
+        this.getServer().getPluginManager().registerEvents(new ChatListener(this.chatManager, this), this);
 
         getLogger().info("JustChat has been enabled!");
     }
@@ -29,13 +24,5 @@ public final class JustChat extends JavaPlugin {
     @Override
     public void onDisable() {
         getLogger().info("JustChat has been disabled!");
-    }
-
-    public ConfigManager getConfigManager() {
-        return configManager;
-    }
-
-    public LuckPermsHook getLuckPermsHook() {
-        return luckPermsHook;
     }
 }

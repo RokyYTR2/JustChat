@@ -5,3 +5,22 @@ api-version: '1.21'
 authors: [ Meyba._. ]
 description: Just a chat plugin.
 softdepend: [PlaceholderAPI, LuckPerms]
+commands:
+  chat:
+    description: Main command for the JustChat plugin.
+    usage: /chat [reload|help]
+    permission: justchat.use
+    permission-message: &cYou don't have permission to use this command.
+permissions:
+  justchat.use:
+    description: Allows a player to use the /chat command.
+    default: op
+  justchat.reload:
+    description: Allows a player to reload the plugin configuration.
+    default: op
+  justchat.help:
+    description: Allows a player to see the help menu.
+    default: true
+  justchat.color:
+    description: Allows a player to use color codes in chat.
+    default: false

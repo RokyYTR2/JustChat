@@ -1,36 +1,43 @@
 package dev.meyba.justChat.listeners;
 
 import dev.meyba.justChat.JustChat;
-import me.clip.placeholderapi.PlaceholderAPI;
+import dev.meyba.justChat.managers.ChatManager;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class ChatListener implements Listener {
+    private final ChatManager chatManager;
     private final JustChat plugin;
 
-    public ChatListener(JustChat plugin) {
+    public ChatListener(ChatManager chatManager, JustChat plugin) {
+        this.chatManager = chatManager;
         this.plugin = plugin;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerChat(AsyncPlayerChatEvent event) {
-        String group = plugin.getLuckPermsHook().getPrimaryGroup(event.getPlayer());
-
-        String format = plugin.getConfigManager().getChatFormat(group);
-
-        String message = ChatColor.translateAlternateColorCodes('&', event.getMessage());
-
-        format = format.replace("{player}", event.getPlayer().getName())
-                .replace("{message}", message)
-                .replace("{luckperms_prefix}", ChatColor.translateAlternateColorCodes('&', plugin.getLuckPermsHook().getPrimaryGroup(event.getPlayer())));
-
-        if (plugin.getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-            format = PlaceholderAPI.setPlaceholders(event.getPlayer(), format);
+        if (event.isCancelled()) {
+            return;
         }
 
+        Player player = event.getPlayer();
+        String originalMessage = event.getMessage();
+
+        String message = originalMessage;
+        if (player.hasPermission("justchat.color")) {
+            message = ChatColor.translateAlternateColorCodes('&', originalMessage);
+        }
+
+        String formattedMessage = chatManager.formatChatMessage(player, message);
+
         event.setCancelled(true);
-        event.getPlayer().getServer().broadcastMessage(format);
+
+        plugin.getServer().broadcastMessage(formattedMessage);
+
+        plugin.getLogger().info("[CHAT] " + player.getName() + ": " + originalMessage);
     }
 }

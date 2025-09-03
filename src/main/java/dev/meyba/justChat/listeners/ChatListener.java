@@ -24,7 +24,7 @@ public class ChatListener implements Listener {
 
         format = format.replace("{player}", event.getPlayer().getName())
                 .replace("{message}", message)
-                .replace("{luckperms_prefix}", ChatColor.translateAlternateColorCodes('&', plugin.getLuckPermsHook().getPrefix(event.getPlayer())));
+                .replace("{luckperms_prefix}", ChatColor.translateAlternateColorCodes('&', plugin.getLuckPermsHook().getPrimaryGroup(event.getPlayer())));
 
         if (plugin.getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             format = PlaceholderAPI.setPlaceholders(event.getPlayer(), format);

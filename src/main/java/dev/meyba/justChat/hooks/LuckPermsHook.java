@@ -29,17 +29,4 @@ public class LuckPermsHook {
         if (user == null) return "default";
         return user.getPrimaryGroup();
     }
-
-    public String getPrefix(Player player) {
-        User user = api.getUserManager().getUser(player.getUniqueId());
-        if (user != null) {
-            MetaData meta = user.getCachedData().getMetaData();
-            String prefix = meta.getPrefix();
-            if (prefix != null) {
-                prefix = prefix.replace('§', '&');
-                return org.bukkit.ChatColor.translateAlternateColorCodes('&', prefix);
-            }
-        }
-        return "";
-    }
 }

@@ -28,19 +28,19 @@ messages:
 
 chat-formats:
   # Default format for players without specific group format
-  default: "&7{prefix}&f{player}&7{suffix}&8: &f{message}"
+  default: "&7{prefix}&f{player}&7{suffix}&f: &r{message}"
   
   # Admin group format
-  admin: "&c{prefix}&f{player}&c{suffix}&8: &f{message}"
+  admin: "&c{prefix}&f{player}&c{suffix}&f: &r{message}"
   
   # Moderator group format  
-  moderator: "&9{prefix}&f{player}&9{suffix}&8: &f{message}"
+  moderator: "&9{prefix}&f{player}&9{suffix}&f: &r{message}"
   
   # VIP group format
-  vip: "&6{prefix}&f{player}&6{suffix}&8: &f{message}"
+  vip: "&6{prefix}&f{player}&6{suffix}&f: &r{message}"
   
   # Helper group format
-  helper: "&a{prefix}&f{player}&a{suffix}&8: &f{message}"
+  helper: "&a{prefix}&f{player}&a{suffix}&f: &r{message}"
   
   # Builder group format
   builder: "&d{prefix}&f{player}&d{suffix}&8: &f{message}"

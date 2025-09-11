@@ -27,6 +27,14 @@ public class ChatListener implements Listener {
         Player player = event.getPlayer();
         String originalMessage = event.getMessage();
 
+        if (chatManager.isChatMuted() && !player.hasPermission("justchat.mutechat.bypass")) {
+            String prefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix"));
+            String mutedMessage = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.chat-muted"));
+            player.sendMessage(prefix + mutedMessage);
+            event.setCancelled(true);
+            return;
+        }
+
         String message = originalMessage;
         if (player.hasPermission("justchat.color")) {
             message = ChatColor.translateAlternateColorCodes('&', originalMessage);

@@ -39,14 +39,23 @@ public class Commands implements CommandExecutor, TabCompleter {
                     sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', successMsg));
                     return true;
                 case "help":
-                    if (!sender.hasPermission("justchat.help")) {
+                    sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "ʜᴇʟᴘ ᴍᴇɴᴜ:"));
+                    sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat reload - ʀᴇʟᴏᴀᴅꜱ ᴛʜᴇ ᴄᴏɴꜰɪɢ."));
+                    sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat help - ꜱʜᴏᴡꜱ ᴛʜɪꜱ ᴍᴇɴᴜ."));
+                    sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat mutechat - ᴛᴏɢɢʟᴇꜱ ɢʟᴏʙᴀʟ ᴄʜᴀᴛ ᴍᴜᴛᴇ."));
+                    return true;
+                case "mutechat":
+                    if (!sender.hasPermission("justchat.mutechat")) {
                         String noPermissionMsg = this.plugin.getConfig().getString("messages.no-permission");
                         sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', noPermissionMsg));
                         return true;
                     }
-                    sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "ʜᴇʟᴘ ᴍᴇɴᴜ:"));
-                    sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat reload - ʀᴇʟᴏᴀᴅꜱ ᴛʜᴇ ᴄᴏɴꜰɪɢ."));
-                    sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat help - ꜱʜᴏᴡꜱ ᴛʜɪꜱ ᴍᴇɴᴜ."));
+                    boolean newState = !chatManager.isChatMuted();
+                    chatManager.setChatMuted(newState);
+                    String message = newState
+                            ? this.plugin.getConfig().getString("messages.chat-mute-enabled")
+                            : this.plugin.getConfig().getString("messages.chat-mute-disabled");
+                    plugin.getServer().broadcastMessage(prefix + ChatColor.translateAlternateColorCodes('&', message));
                     return true;
                 default:
                     break;
@@ -57,6 +66,7 @@ public class Commands implements CommandExecutor, TabCompleter {
             sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "ʜᴇʟᴘ ᴍᴇɴᴜ:"));
             sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat reload - ʀᴇʟᴏᴀᴅꜱ ᴛʜᴇ ᴄᴏɴꜰɪɢ."));
             sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat help - ꜱʜᴏᴡꜱ ᴛʜɪꜱ ᴍᴇɴᴜ."));
+            sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat mutechat - ᴛᴏɢɢʟᴇꜱ ɢʟᴏʙᴀʟ ᴄʜᴀᴛ ᴍᴜᴛᴇ."));
         } else {
             String noPermissionMsg = this.plugin.getConfig().getString("messages.no-permission");
             sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', noPermissionMsg));
@@ -73,6 +83,9 @@ public class Commands implements CommandExecutor, TabCompleter {
             }
             if (sender.hasPermission("justchat.help")) {
                 completions.add("help");
+            }
+            if (sender.hasPermission("justchat.mutechat")) {
+                completions.add("mutechat");
             }
         }
 

@@ -24,3 +24,6 @@ permissions:
   justchat.color:
     description: Allows a player to use color codes in chat.
     default: false
+  justchat.mutechat:
+    description: Allows to mute global chat.
+    default: op

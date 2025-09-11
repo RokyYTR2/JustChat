@@ -12,9 +12,11 @@ public class ChatManager {
     private final JustChat plugin;
     private LuckPerms luckPermsAPI;
     private boolean placeholderAPIEnabled;
+    private boolean isChatMuted;
 
     public ChatManager(JustChat plugin) {
         this.plugin = plugin;
+        this.isChatMuted = false;
         initializeHooks();
     }
 
@@ -41,6 +43,14 @@ public class ChatManager {
 
     public void reloadConfig() {
         initializeHooks();
+    }
+
+    public boolean isChatMuted() {
+        return isChatMuted;
+    }
+
+    public void setChatMuted(boolean muted) {
+        this.isChatMuted = muted;
     }
 
     public String getPrimaryGroup(Player player) {
@@ -100,14 +110,14 @@ public class ChatManager {
         FileConfiguration config = plugin.getConfig();
         String group = getPrimaryGroup(player);
 
-        String format = config.getString("chat-formats." + group, 
-                       config.getString("chat-formats.default", "{prefix}{player}{suffix}: {message}"));
+        String format = config.getString("chat-formats." + group,
+                config.getString("chat-formats.default", "{prefix}{player}{suffix}: {message}"));
 
         format = format.replace("{player}", player.getName())
-                      .replace("{message}", message)
-                      .replace("{group}", group)
-                      .replace("{prefix}", getPrefix(player))
-                      .replace("{suffix}", getSuffix(player));
+                .replace("{message}", message)
+                .replace("{group}", group)
+                .replace("{prefix}", getPrefix(player))
+                .replace("{suffix}", getSuffix(player));
 
         if (placeholderAPIEnabled) {
             try {

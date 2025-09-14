@@ -1,5 +1,5 @@
 name: JustChat
-version: '0.0.1'
+version: '0.0.2'
 main: dev.meyba.justChat.JustChat
 api-version: '1.21'
 authors: [ Meyba._. ]

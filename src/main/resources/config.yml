@@ -17,6 +17,16 @@ messages:
   chat-muted: "&cᴛʜᴇ ᴄʜᴀᴛ ɪꜱ ᴄᴜʀʀᴇɴᴛʟʏ ᴍᴜᴛᴇᴅ." # Message when a player tries to chat while muted
   chat-mute-enabled: "&cɢʟᴏʙᴀʟ ᴄʜᴀᴛ ʜᴀꜱ ʙᴇᴇɴ ᴍᴜᴛᴇᴅ." # Message when chat is muted
   chat-mute-disabled: "&aɢʟᴏʙᴀʟ ᴄʜᴀᴛ ʜᴀꜱ ʙᴇᴇɴ ᴜɴᴍᴜᴛᴇᴅ." # Message when chat is unmuted
+  player-not-found: "&cᴘʟᴀʏᴇʀ {player} ɴᴏᴛ ꜰᴏᴜɴᴅ."
+  no-one-to-reply-to: "&cʏᴏᴜ ʜᴀᴠᴇ ɴᴏ ᴏɴᴇ ᴛᴏ ʀᴇᴘʟʏ ᴛᴏ."
+  cannot-message-self: "&cʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴍᴇꜱꜱᴀɢᴇ ʏᴏᴜʀꜱᴇʟꜰ."
+  private-message-format-sender: "&7[&fᴍᴇ &7-> &f{receiver}&7] &f{message}"
+  private-message-format-receiver: "&7[&f{sender} &7-> &fMe&7] &f{message}"
+  player-muted: "&cʏᴏᴜ ᴀʀᴇ ᴄᴜʀʀᴇɴᴛʟʏ ᴍᴜᴛᴇᴅ."
+  player-mute-success: "&aꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴍᴜᴛᴇᴅ {player}."
+  player-unmute-success: "&aꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴜɴᴍᴜᴛᴇᴅ {player}."
+  player-already-muted: "&c{player} ɪꜱ ᴀʟʀᴇᴀᴅʏ ᴍᴜᴛᴇᴅ."
+  player-not-muted: "&c{player} ɪꜱ ɴᴏᴛ ᴍᴜᴛᴇᴅ."
 
 # =======================
 # Chat Formats
@@ -56,4 +66,4 @@ anti-swear:
     - "badword2"
     - "example"
   replacement: "***"
-  message: "&cPlease do not use inappropriate language."
+  message: "&cᴘʟᴇᴀꜱᴇ ᴅᴏ ɴᴏᴛ ᴜꜱᴇ ɪɴᴀᴘᴘʀᴏᴘʀɪᴀᴛᴇ ʟᴀɴɢᴜᴀɢᴇ."

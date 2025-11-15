@@ -5,8 +5,8 @@ import net.luckperms.api.LuckPerms;
 import net.luckperms.api.model.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
 public class ChatManager {
     private final JustChat plugin;

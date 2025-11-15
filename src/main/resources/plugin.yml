@@ -1,5 +1,5 @@
 name: JustChat
-version: '0.0.2'
+version: '0.0.3'
 main: dev.meyba.justChat.JustChat
 api-version: '1.21'
 authors: [ Meyba._., Jezevcik20 ]
@@ -8,9 +8,27 @@ softdepend: [PlaceholderAPI, LuckPerms]
 commands:
   chat:
     description: Main command for the JustChat plugin.
-    usage: /chat [reload|help|mutechat]
+    usage: /chat [reload|help|mutechat|msg|reply|mute|unmute]
     permission: justchat.use
     permission-message: &cYou don't have permission to use this command.
+  msg:
+    description: Sends a private message to a player.
+    usage: /msg <player> <message>
+    aliases: [tell, w]
+    permission: justchat.msg
+  reply:
+    description: Replies to the last private message.
+    usage: /reply <message>
+    aliases: [r]
+    permission: justchat.reply
+  mute:
+    description: Mutes a player.
+    usage: /mute <player> [time] [reason]
+    permission: justchat.mute
+  unmute:
+    description: Unmutes a player.
+    usage: /unmute <player>
+    permission: justchat.unmute
 permissions:
   justchat.use:
     description: Allows a player to use the /chat command.
@@ -26,4 +44,19 @@ permissions:
     default: false
   justchat.mutechat:
     description: Allows to mute global chat.
+    default: op
+  justchat.antiswear.bypass:
+    description: Allows a player to bypass the anti-swear filter.
+    default: op
+  justchat.msg:
+    description: Allows a player to send private messages.
+    default: true
+  justchat.reply:
+    description: Allows a player to reply to private messages.
+    default: true
+  justchat.mute:
+    description: Allows a player to mute other players.
+    default: op
+  justchat.unmute:
+    description: Allows a player to unmute other players.
     default: op

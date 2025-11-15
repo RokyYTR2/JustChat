@@ -2,6 +2,7 @@ package dev.meyba.justChat.listeners;
 
 import dev.meyba.justChat.JustChat;
 import dev.meyba.justChat.managers.ChatManager;
+import dev.meyba.justChat.managers.MuteManager;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,12 +11,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class ChatListener implements Listener {
-    private final ChatManager chatManager;
     private final JustChat plugin;
+    private final ChatManager chatManager;
+    private final MuteManager muteManager;
 
-    public ChatListener(ChatManager chatManager, JustChat plugin) {
-        this.chatManager = chatManager;
+    public ChatListener(JustChat plugin) {
         this.plugin = plugin;
+        this.chatManager = plugin.getChatManager();
+        this.muteManager = plugin.getMuteManager();
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -25,6 +28,14 @@ public class ChatListener implements Listener {
         }
 
         Player player = event.getPlayer();
+
+        if (muteManager.isMuted(player.getUniqueId())) {
+            String mutedMessage = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.player-muted"));
+            player.sendMessage(mutedMessage);
+            event.setCancelled(true);
+            return;
+        }
+
         String originalMessage = event.getMessage();
 
         if (chatManager.isChatMuted() && !player.hasPermission("justchat.mutechat.bypass")) {

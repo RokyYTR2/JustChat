@@ -10,13 +10,13 @@ public final class JustChat extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        this.saveDefaultConfig();
+        saveDefaultConfig();
 
-        this.chatManager = new ChatManager(this);
+        chatManager = new ChatManager(this);
 
-        this.getCommand("chat").setExecutor(new Commands(this.chatManager, this));
+        getCommand("chat").setExecutor(new Commands(chatManager, this));
 
-        this.getServer().getPluginManager().registerEvents(new ChatListener(this.chatManager, this), this);
+        getServer().getPluginManager().registerEvents(new ChatListener(chatManager, this), this);
 
         getLogger().info("JustChat has been enabled!");
     }

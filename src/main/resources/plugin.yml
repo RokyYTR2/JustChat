@@ -2,7 +2,7 @@ name: JustChat
 version: '0.0.2'
 main: dev.meyba.justChat.JustChat
 api-version: '1.21'
-authors: [ Meyba._. ]
+authors: [ Meyba._., Jezevcik20 ]
 description: Just a chat plugin.
 softdepend: [PlaceholderAPI, LuckPerms]
 commands:

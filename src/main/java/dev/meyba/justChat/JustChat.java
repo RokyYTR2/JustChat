@@ -6,13 +6,12 @@ import dev.meyba.justChat.managers.ChatManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class JustChat extends JavaPlugin {
-    private ChatManager chatManager;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
 
-        chatManager = new ChatManager(this);
+        ChatManager chatManager = new ChatManager(this);
 
         getCommand("chat").setExecutor(new Commands(chatManager, this));
 

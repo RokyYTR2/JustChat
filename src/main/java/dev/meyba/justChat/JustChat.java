@@ -1,6 +1,6 @@
 package dev.meyba.justChat;
 
-import dev.meyba.justChat.commands.Commands;
+import dev.meyba.justChat.commands.ChatCommands;
 import dev.meyba.justChat.listeners.ChatListener;
 import dev.meyba.justChat.managers.ChatManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,7 +13,7 @@ public final class JustChat extends JavaPlugin {
 
         ChatManager chatManager = new ChatManager(this);
 
-        getCommand("chat").setExecutor(new Commands(chatManager, this));
+        getCommand("chat").setExecutor(new ChatCommands(chatManager, this));
 
         getServer().getPluginManager().registerEvents(new ChatListener(chatManager, this), this);
 

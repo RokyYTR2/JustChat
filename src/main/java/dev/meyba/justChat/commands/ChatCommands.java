@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Commands implements CommandExecutor, TabCompleter {
+public class ChatCommands implements CommandExecutor, TabCompleter {
     private final ChatManager chatManager;
     private final JustChat plugin;
 
-    public Commands(ChatManager chatManager, JustChat plugin) {
+    public ChatCommands(ChatManager chatManager, JustChat plugin) {
         this.chatManager = chatManager;
         this.plugin = plugin;
     }

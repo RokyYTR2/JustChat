@@ -33,7 +33,7 @@ public class ChatCommands implements CommandExecutor, TabCompleter {
                         sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', noPermissionMsg));
                         return true;
                     }
-                    this.plugin.reloadConfig();
+                    this.plugin.loadConfig();
                     this.chatManager.reloadConfig();
                     String successMsg = this.plugin.getConfig().getString("messages.reload-success");
                     sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', successMsg));

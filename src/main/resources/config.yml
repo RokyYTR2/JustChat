@@ -43,3 +43,17 @@ chat-formats:
   helper: "&a{prefix}&f{player}&a{suffix}&f: &r{message}" # Helper group format
 
   builder: "&d{prefix}&f{player}&d{suffix}&8: &f{message}" # Builder group format
+
+# =======================
+# Anti-Swear System
+# =======================
+# Enable or disable the anti-swear system
+# =======================
+anti-swear:
+  enabled: true
+  blocked-words:
+    - "badword1"
+    - "badword2"
+    - "example"
+  replacement: "***"
+  message: "&cPlease do not use inappropriate language."

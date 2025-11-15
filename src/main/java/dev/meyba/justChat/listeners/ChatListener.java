@@ -36,8 +36,16 @@ public class ChatListener implements Listener {
         }
 
         String message = originalMessage;
+
+        if (plugin.isAntiSwearEnabled() && !player.hasPermission("justchat.antiswear.bypass")) {
+            for (String blockedWord : plugin.getBlockedWords()) {
+                String regex = "(?i)" + blockedWord;
+                message = message.replaceAll(regex, plugin.getReplacement());
+            }
+        }
+
         if (player.hasPermission("justchat.color")) {
-            message = ChatColor.translateAlternateColorCodes('&', originalMessage);
+            message = ChatColor.translateAlternateColorCodes('&', message);
         }
 
         String formattedMessage = chatManager.formatChatMessage(player, message);

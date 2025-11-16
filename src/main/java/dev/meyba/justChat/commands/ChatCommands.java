@@ -84,6 +84,9 @@ public class ChatCommands implements CommandExecutor, TabCompleter {
                     sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat reload - ʀᴇʟᴏᴀᴅꜱ ᴛʜᴇ ᴄᴏɴꜰɪɢ."));
                     sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat help - ꜱʜᴏᴡꜱ ᴛʜɪꜱ ᴍᴇɴᴜ."));
                     sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat mutechat - ᴛᴏɢɢʟᴇꜱ ɢʟᴏʙᴀʟ ᴄʜᴀᴛ ᴍᴜᴛᴇ."));
+                    sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat mute <player> [time] [reason] - ᴛᴏɢɢʟᴇꜱ ɢʟᴏʙᴀʟ ᴄʜᴀᴛ ᴍᴜᴛᴇ."));
+                    sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat unmute <player> - ᴛᴏɢɢʟᴇꜱ ɢʟᴏʙᴀʟ ᴄʜᴀᴛ ᴍᴜᴛᴇ."));
+                    sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', "/chat msg <player> [message] - ᴛᴏɢɢʟᴇꜱ ɢʟᴏʙᴀʟ ᴄʜᴀᴛ ᴍᴜᴛᴇ."));
                     return true;
             }
         }

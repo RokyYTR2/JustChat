@@ -5,6 +5,7 @@ import dev.meyba.justChat.listeners.ChatListener;
 import dev.meyba.justChat.managers.ChatManager;
 import dev.meyba.justChat.managers.MessageManager;
 import dev.meyba.justChat.managers.MuteManager;
+import dev.meyba.justChat.utils.VersionChecker;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
@@ -34,6 +35,8 @@ public final class JustChat extends JavaPlugin {
         getCommand("unmute").setExecutor(commandExecutor);
 
         getServer().getPluginManager().registerEvents(new ChatListener(this), this);
+
+        new VersionChecker(this, "RokyYTR2", "JustChat").checkForUpdates();
 
         getLogger().info("JustChat has been enabled!");
     }

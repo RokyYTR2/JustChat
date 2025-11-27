@@ -11,12 +11,12 @@ prefix: "&x&A&2&8&B&5&9&lᴊ&x&A&4&8&D&5&A&lᴜ&x&A&5&8&E&5&C&lꜱ&x&A&7&9&0&5&D
 # Messages shown in chat
 # =======================
 messages:
-  not-a-player: "&cʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ꜰʀᴏᴍ ᴛʜᴇ ᴄᴏɴꜱᴏʟᴇ." # Message when a non-player tries the command
-  no-permission: "&cʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ." # Message when the player lacks permission
-  reload-success: "&aᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ʜᴀꜱ ʙᴇᴇɴ ʀᴇʟᴏᴀᴅᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ!" # Message when the config reloads
-  chat-muted: "&cᴛʜᴇ ᴄʜᴀᴛ ɪꜱ ᴄᴜʀʀᴇɴᴛʟʏ ᴍᴜᴛᴇᴅ." # Message when a player tries to chat while muted
-  chat-mute-enabled: "&cɢʟᴏʙᴀʟ ᴄʜᴀᴛ ʜᴀꜱ ʙᴇᴇɴ ᴍᴜᴛᴇᴅ." # Message when chat is muted
-  chat-mute-disabled: "&aɢʟᴏʙᴀʟ ᴄʜᴀᴛ ʜᴀꜱ ʙᴇᴇɴ ᴜɴᴍᴜᴛᴇᴅ." # Message when chat is unmuted
+  not-a-player: "&cʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ꜰʀᴏᴍ ᴛʜᴇ ᴄᴏɴꜱᴏʟᴇ."
+  no-permission: "&cʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ."
+  reload-success: "&aᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ʜᴀꜱ ʙᴇᴇɴ ʀᴇʟᴏᴀᴅᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ!"
+  chat-muted: "&cᴛʜᴇ ᴄʜᴀᴛ ɪꜱ ᴄᴜʀʀᴇɴᴛʟʏ ᴍᴜᴛᴇᴅ."
+  chat-mute-enabled: "&cɢʟᴏʙᴀʟ ᴄʜᴀᴛ ʜᴀꜱ ʙᴇᴇɴ ᴍᴜᴛᴇᴅ."
+  chat-mute-disabled: "&aɢʟᴏʙᴀʟ ᴄʜᴀᴛ ʜᴀꜱ ʙᴇᴇɴ ᴜɴᴍᴜᴛᴇᴅ."
   player-not-found: "&cᴘʟᴀʏᴇʀ {player} ɴᴏᴛ ꜰᴏᴜɴᴅ."
   no-one-to-reply-to: "&cʏᴏᴜ ʜᴀᴠᴇ ɴᴏ ᴏɴᴇ ᴛᴏ ʀᴇᴘʟʏ ᴛᴏ."
   cannot-message-self: "&cʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴍᴇꜱꜱᴀɢᴇ ʏᴏᴜʀꜱᴇʟꜰ."

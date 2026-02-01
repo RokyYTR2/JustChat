@@ -1,40 +1,48 @@
 package dev.meyba.justChat;
 
-import dev.meyba.justChat.commands.ChatCommands;
+import dev.meyba.justChat.commands.*;
+import dev.meyba.justChat.listeners.ChatBubblesListener;
 import dev.meyba.justChat.listeners.ChatListener;
 import dev.meyba.justChat.managers.ChatManager;
+import dev.meyba.justChat.managers.IgnoreManager;
 import dev.meyba.justChat.managers.MessageManager;
 import dev.meyba.justChat.managers.MuteManager;
+import dev.meyba.justChat.utils.ChatUtils;
 import dev.meyba.justChat.utils.VersionChecker;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.List;
-
 public final class JustChat extends JavaPlugin {
     private ChatManager chatManager;
+    private MessageManager messageManager;
     private MuteManager muteManager;
-    private boolean antiSwearEnabled;
-    private List<String> blockedWords;
-    private String replacement;
-    private String antiSwearMessage;
+    private IgnoreManager ignoreManager;
+    private ChatUtils chatUtils;
+    private ChatBubblesListener chatBubblesListener;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        loadConfig();
+
+        chatUtils = new ChatUtils(this);
 
         chatManager = new ChatManager(this);
-        MessageManager messageManager = new MessageManager(this);
+        messageManager = new MessageManager(this);
         muteManager = new MuteManager(this);
+        ignoreManager = new IgnoreManager(this);
 
-        ChatCommands commandExecutor = new ChatCommands(this, chatManager, messageManager, muteManager);
-        getCommand("chat").setExecutor(commandExecutor);
-        getCommand("msg").setExecutor(commandExecutor);
-        getCommand("reply").setExecutor(commandExecutor);
-        getCommand("mute").setExecutor(commandExecutor);
-        getCommand("unmute").setExecutor(commandExecutor);
+        getCommand("chat").setExecutor(new JustChatCommand(this));
+        getCommand("msg").setExecutor(new MsgCommand(this));
+        getCommand("reply").setExecutor(new ReplyCommand(this));
+        getCommand("mute").setExecutor(new MuteCommand(this));
+        getCommand("unmute").setExecutor(new UnmuteCommand(this));
+        getCommand("ignore").setExecutor(new IgnoreCommand(this));
+        getCommand("unignore").setExecutor(new UnignoreCommand(this));
+        getCommand("clearchat").setExecutor(new ClearChatCommand(this));
 
         getServer().getPluginManager().registerEvents(new ChatListener(this), this);
+
+        chatBubblesListener = new ChatBubblesListener(this);
+        getServer().getPluginManager().registerEvents(chatBubblesListener, this);
 
         new VersionChecker(this, "RokyYTR2", "JustChat").checkForUpdates();
 
@@ -43,35 +51,31 @@ public final class JustChat extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        if (chatBubblesListener != null) {
+            chatBubblesListener.cleanup();
+        }
         muteManager.saveMutes();
+        ignoreManager.saveIgnores();
         getLogger().info("JustChat has been disabled!");
-    }
-
-    public void loadConfig() {
-        reloadConfig();
-        antiSwearEnabled = getConfig().getBoolean("anti-swear.enabled");
-        blockedWords = getConfig().getStringList("anti-swear.blocked-words");
-        replacement = getConfig().getString("anti-swear.replacement");
-        antiSwearMessage = getConfig().getString("anti-swear.message");
     }
 
     public ChatManager getChatManager() {
         return chatManager;
     }
 
+    public MessageManager getMessageManager() {
+        return messageManager;
+    }
+
     public MuteManager getMuteManager() {
         return muteManager;
     }
 
-    public boolean isAntiSwearEnabled() {
-        return antiSwearEnabled;
+    public IgnoreManager getIgnoreManager() {
+        return ignoreManager;
     }
 
-    public List<String> getBlockedWords() {
-        return blockedWords;
-    }
-
-    public String getReplacement() {
-        return replacement;
+    public ChatUtils getChatUtils() {
+        return chatUtils;
     }
 }

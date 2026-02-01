@@ -1,12 +1,15 @@
 package dev.meyba.justChat.managers;
 
 import dev.meyba.justChat.JustChat;
+import dev.meyba.justChat.utils.ColorUtils;
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.model.user.User;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+
+import java.util.List;
 
 public class ChatManager {
     private final JustChat plugin;
@@ -43,6 +46,18 @@ public class ChatManager {
 
     public void reloadConfig() {
         initializeHooks();
+    }
+
+    public boolean isAntiSwearEnabled() {
+        return plugin.getConfig().getBoolean("anti-swear.enabled", false);
+    }
+
+    public List<String> getBlockedWords() {
+        return plugin.getConfig().getStringList("anti-swear.blocked-words");
+    }
+
+    public String getReplacement() {
+        return plugin.getConfig().getString("anti-swear.replacement", "***");
     }
 
     public boolean isChatMuted() {
@@ -121,12 +136,12 @@ public class ChatManager {
 
         if (placeholderAPIEnabled) {
             try {
-                format = me.clip.placeholderapi.PlaceholderAPI.setPlaceholders(player, format);
+                format = PlaceholderAPI.setPlaceholders(player, format);
             } catch (Exception e) {
                 plugin.getLogger().warning("Failed to process PlaceholderAPI placeholders: " + e.getMessage());
             }
         }
 
-        return ChatColor.translateAlternateColorCodes('&', format);
+        return ColorUtils.translateColorCodes(format);
     }
 }

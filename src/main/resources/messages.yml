@@ -1,0 +1,39 @@
+# =======================
+# JustChat Messages
+# =======================
+# All plugin messages
+# =======================
+
+# General messages
+messages:
+  not-a-player: "&#FF6B6B✘ &#FFFFFFᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴄᴀɴ ᴏɴʟʏ ʙᴇ ᴜsᴇᴅ ʙʏ ᴘʟᴀʏᴇʀs."
+  no-permission: "&#FF6B6B✘ &#FFFFFFʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ."
+  player-not-found: "&#FF6B6B✘ &#FFFFFFᴘʟᴀʏᴇʀ &#4BC0F1%player% &#FFFFFFᴡᴀs ɴᴏᴛ ꜰᴏᴜɴᴅ!"
+  reload-success: "&#A8E6A8✔ &#FFFFFFᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ʜᴀs ʙᴇᴇɴ ʀᴇʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssꜰᴜʟʟʏ!"
+
+  # Chat mute
+  chat-muted: "&#FF6B6B✘ &#FFFFFFᴛʜᴇ ᴄʜᴀᴛ ɪs ᴄᴜʀʀᴇɴᴛʟʏ ᴍᴜᴛᴇᴅ!"
+  chat-mute-enabled: "&#FF6B6B✘ &#FFFFFFɢʟᴏʙᴀʟ ᴄʜᴀᴛ ʜᴀs ʙᴇᴇɴ ᴍᴜᴛᴇᴅ!"
+  chat-mute-disabled: "&#A8E6A8✔ &#FFFFFFɢʟᴏʙᴀʟ ᴄʜᴀᴛ ʜᴀs ʙᴇᴇɴ ᴜɴᴍᴜᴛᴇᴅ!"
+  chat-cleared: "&#A8E6A8✔ &#FFFFFFᴄʜᴀᴛ ʜᴀs ʙᴇᴇɴ ᴄʟᴇᴀʀᴇᴅ ʙʏ &#4BC0F1%player%&#FFFFFF!"
+
+  # Private messages
+  no-one-to-reply-to: "&#FF6B6B✘ &#FFFFFFʏᴏᴜ ʜᴀᴠᴇ ɴᴏ ᴏɴᴇ ᴛᴏ ʀᴇᴘʟʏ ᴛᴏ!"
+  cannot-message-self: "&#FF6B6B✘ &#FFFFFFʏᴏᴜ ᴄᴀɴɴᴏᴛ ᴍᴇssᴀɢᴇ ʏᴏᴜʀsᴇʟꜰ!"
+  player-ignoring-you: "&#FF6B6B✘ &#FFFFFFᴛʜɪs ᴘʟᴀʏᴇʀ ɪs ɪɢɴᴏʀɪɴɢ ʏᴏᴜ!"
+  private-message-format-sender: "&#A855F7&l[&#FFFFFFᴍᴇ &#A855F7&l→ &#FFFFFF%receiver%&#A855F7&l] &#FFFFFF%message%"
+  private-message-format-receiver: "&#A855F7&l[&#FFFFFF%sender% &#A855F7&l→ &#FFFFFFᴍᴇ&#A855F7&l] &#FFFFFF%message%"
+
+  # Mute system
+  player-muted: "&#FF6B6B✘ &#FFFFFFʏᴏᴜ ᴀʀᴇ ᴍᴜᴛᴇᴅ ᴀɴᴅ ᴄᴀɴɴᴏᴛ ᴄʜᴀᴛ!"
+  player-mute-success: "&#A8E6A8✔ &#FFFFFFᴘʟᴀʏᴇʀ &#4BC0F1%player% &#FFFFFFʜᴀs ʙᴇᴇɴ ᴍᴜᴛᴇᴅ sᴜᴄᴄᴇssꜰᴜʟʟʏ!"
+  player-unmute-success: "&#A8E6A8✔ &#FFFFFFᴘʟᴀʏᴇʀ &#4BC0F1%player% &#FFFFFFɪs ɴᴏ ʟᴏɴɢᴇʀ ᴍᴜᴛᴇᴅ!"
+  player-already-muted: "&#FF6B6B✘ &#FFFFFFᴘʟᴀʏᴇʀ &#4BC0F1%player% &#FFFFFFɪs ᴀʟʀᴇᴀᴅʏ ᴍᴜᴛᴇᴅ!"
+  player-not-muted: "&#FF6B6B✘ &#FFFFFFᴘʟᴀʏᴇʀ &#4BC0F1%player% &#FFFFFFɪs ɴᴏᴛ ᴍᴜᴛᴇᴅ!"
+
+  # Ignore system
+  ignore-success: "&#A8E6A8✔ &#FFFFFFʏᴏᴜ ᴀʀᴇ ɴᴏᴡ ɪɢɴᴏʀɪɴɢ &#4BC0F1%player%&#FFFFFF!"
+  unignore-success: "&#A8E6A8✔ &#FFFFFFʏᴏᴜ ᴀʀᴇ ɴᴏ ʟᴏɴɢᴇʀ ɪɢɴᴏʀɪɴɢ &#4BC0F1%player%&#FFFFFF!"
+  already-ignoring: "&#FF6B6B✘ &#FFFFFFʏᴏᴜ ᴀʀᴇ ᴀʟʀᴇᴀᴅʏ ɪɢɴᴏʀɪɴɢ &#4BC0F1%player%&#FFFFFF!"
+  not-ignoring: "&#FF6B6B✘ &#FFFFFFʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ɪɢɴᴏʀɪɴɢ &#4BC0F1%player%&#FFFFFF!"
+  cannot-ignore-self: "&#FF6B6B✘ &#FFFFFFʏᴏᴜ ᴄᴀɴɴᴏᴛ ɪɢɴᴏʀᴇ ʏᴏᴜʀsᴇʟꜰ!"

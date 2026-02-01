@@ -1,14 +1,16 @@
 name: JustChat
-version: '0.0.3'
+version: '0.0.4'
 main: dev.meyba.justChat.JustChat
 api-version: '1.21'
 authors: [ Meyba._., Jezevcik20 ]
 description: Just a chat plugin.
-softdepend: [PlaceholderAPI, LuckPerms]
+softdepend: [ PlaceholderAPI, LuckPerms ]
+
 commands:
   chat:
     description: Main command for the JustChat plugin.
     usage: /chat [reload|help|mutechat|msg|reply|mute|unmute]
+    aliases: [jc]
     permission: justchat.use
     permission-message: &cYou don't have permission to use this command.
   msg:
@@ -29,6 +31,19 @@ commands:
     description: Unmutes a player.
     usage: /unmute <player>
     permission: justchat.unmute
+  ignore:
+    description: Ignores a player's messages.
+    usage: /ignore <player>
+    permission: justchat.ignore
+  unignore:
+    description: Unignores a player's messages.
+    usage: /unignore <player>
+    permission: justchat.ignore
+  clearchat:
+    description: Clears the chat.
+    usage: /clearchat
+    aliases: [cc]
+    permission: justchat.clearchat
 permissions:
   justchat.use:
     description: Allows a player to use the /chat command.
@@ -59,4 +74,13 @@ permissions:
     default: op
   justchat.unmute:
     description: Allows a player to unmute other players.
+    default: op
+  justchat.ignore:
+    description: Allows a player to ignore other players.
+    default: true
+  justchat.clearchat:
+    description: Allows a player to clear the chat.
+    default: op
+  justchat.mutechat.bypass:
+    description: Allows a player to bypass global chat mute.
     default: op
